@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HelloWorld = require('./plugins/HelloWorld');
 
 module.exports = {
   entry: './src/index.js',
@@ -19,5 +20,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [new HelloWorld()],
 };
