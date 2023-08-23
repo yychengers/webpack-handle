@@ -1,8 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'development',
+  mode: 'production',
   output: {
     // 把所有依赖的模块合并输出到一个 bundle.js 文件
     filename: 'bundle.js',
@@ -18,4 +19,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [],
 };
