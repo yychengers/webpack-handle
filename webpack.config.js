@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HelloWorld = require('./plugins/HelloWorld');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -20,5 +21,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HelloWorld()],
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new HelloWorld({
+      env: 'prod',
+    }),
+  ],
 };

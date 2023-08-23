@@ -1,13 +1,26 @@
+const pluginName = 'HelloWorld';
+
 class HelloWorld {
+  constructor(options) {
+    this.options = options || {
+      env: 'dev',
+    };
+  }
+  /**
+   * 插件是一个可实例化的对象，原型上有一个apply方法
+   * apply方法在安装此插件时由webpack compiler 调用一次。
+   * apply方法被赋予对webpack compiler编译器的引用权限。
+   */
   apply(compiler) {
-    compiler.hooks.done.tap(
-      {
-        name: 'HelloWorld',
-      },
-      () => {
-        console.log('hello world');
-      },
-    );
+    compiler.hooks.afterEmit.tap(pluginName, (compilation) => {
+      console.log('afteremit');
+    });
+    compiler.hooks.done.tap(pluginName, (compilation) => {
+      // console.log(compiler.hooks, 'hooks');
+      // console.log('hello world');
+      // console.log(this.options, stats);
+      console.log('done');
+    });
   }
 }
 
