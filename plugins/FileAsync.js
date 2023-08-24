@@ -7,6 +7,7 @@ class FileAsync {
   apply(compiler) {
     // emit 钩子是生成资源到 output 目录之前执行，emit 是一个异步串行钩子，需要用 tapAsync 来注册
     compiler.hooks.emit.tapAsync(pluginName, (compilation, callback) => {
+      console.log(compiler, compilation, '文件对象');
       // 在生成的文件中，创建一个头部字符串
       var filelist = '文件列表如下：...\n';
 

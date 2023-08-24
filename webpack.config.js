@@ -34,6 +34,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 高级版本  用FileAsync.js
 module.exports = {
+  mode: 'development',
   entry: {
     main: './src/main.js',
     index: './src/index.js',
