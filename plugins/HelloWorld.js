@@ -12,9 +12,11 @@ class HelloWorld {
    * apply方法被赋予对webpack compiler编译器的引用权限。
    */
   apply(compiler) {
+    // 输出 asset 到 output 目录之后执行。
     compiler.hooks.afterEmit.tap(pluginName, (compilation) => {
       console.log('afteremit');
     });
+    // 在 compilation 完成时执行
     compiler.hooks.done.tap(pluginName, (compilation) => {
       // console.log(compiler.hooks, 'hooks');
       // console.log('hello world');
